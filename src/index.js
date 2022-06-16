@@ -18,7 +18,7 @@ function searchPics() {
     .then(data => {
       if (page < 1) {
         gallery.innerHTML = '';
-      } else if (page >= 1) {
+      } else if (page > 1) {
         if (leftHits < 0) {
           Notiflix.Notify.failure(
             `We're sorry, but you've reached the end of search results.`
@@ -40,7 +40,6 @@ function renderPictures(data) {
   totalHits = data.totalHits;
 
   if (page <= 1) {
-    leftHits = totalHits - 40;
     if (totalHits <= 0) {
       Notiflix.Notify.failure(
         `Sorry, there are no images matching your search query. Please try again.`
