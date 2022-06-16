@@ -40,7 +40,7 @@ function renderPictures(data) {
   totalHits = data.totalHits;
 
   if (page <= 1) {
-    if (totalHits <= 0) {
+    if (totalHits == 0) {
       Notiflix.Notify.failure(
         `Sorry, there are no images matching your search query. Please try again.`
       );
