@@ -1,28 +1,98 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+  font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+  background-color: #dfd8c8;
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
+.search-form {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #252523;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #252523;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input {
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  color: #252523;
+  font-family: 'Helvetica Neue';
+  font-size: 17px;
   font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  align-items: center;
+  margin-right: 20px;
+}
+button:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
+}
+button:active {
+  position: relative;
+  top: 1px;
 }
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.gallery {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.photo-card {
+  margin: 5px;
+}
+
+.photo-card:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-image {
+  width: 320px;
+  height: 213px;
+  object-fit: fill;
+  transition: transform var(--animation-duration) var(--timing-function);
+  display: block;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+}
+
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid #252523;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

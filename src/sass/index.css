@@ -1,0 +1,144 @@
+@import url(c:\Users\btmq9\Desktop\Bootcamp\JS\goit-js-hw-11\node_modules\modern-normalize\modern-normalize.css);
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  background-color: #dfd8c8;
+}
+
+.search-form {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #252523;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #252523;
+}
+
+input:-ms-input-placeholder {
+  color: #252523;
+}
+
+input::-ms-input-placeholder {
+  color: #252523;
+}
+
+input::placeholder {
+  color: #252523;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input {
+  -webkit-box-shadow: 3px 4px 0px 0px #899599;
+          box-shadow: 3px 4px 0px 0px #899599;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ededed), to(#bab1ba));
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  color: #252523;
+  font-family: 'Helvetica Neue';
+  font-size: 17px;
+  font-weight: 700;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bab1ba), to(#ededed));
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+}
+
+.gallery {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 10px;
+}
+
+.photo-card {
+  margin: 5px;
+}
+
+.photo-card:hover {
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-image {
+  width: 320px;
+  height: 213px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: -webkit-transform var(--animation-duration) var(--timing-function);
+  transition: -webkit-transform var(--animation-duration) var(--timing-function);
+  transition: transform var(--animation-duration) var(--timing-function);
+  transition: transform var(--animation-duration) var(--timing-function), -webkit-transform var(--animation-duration) var(--timing-function);
+  display: block;
+}
+
+.gallery-image:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border: 1px solid #252523;
+}
+
+.info-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=index.css.map */
