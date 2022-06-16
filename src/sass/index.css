@@ -17,6 +17,7 @@ body {
   top: 0;
   position: fixed;
   width: 100%;
+  z-index: 100;
 }
 
 input:focus,
@@ -91,6 +92,7 @@ button:active {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   gap: 10px;
+  z-index: 10;
 }
 
 .photo-card {

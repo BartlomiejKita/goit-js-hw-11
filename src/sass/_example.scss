@@ -12,6 +12,7 @@ body {
   top: 0;
   position: fixed;
   width: 100%;
+  z-index: 100;
 }
 
 input:focus,
@@ -62,6 +63,7 @@ button:active {
   padding: 5px;
   justify-content: space-evenly;
   gap: 10px;
+  z-index: 10;
 }
 
 .photo-card {
