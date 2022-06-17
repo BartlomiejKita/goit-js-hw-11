@@ -83,8 +83,7 @@ function renderPictures(data) {
   let lightbox = new SimpleLightbox('.gallery a', {
     captionDelay: '250',
   });
-
-  if (page > 1) {
+  if (page > 2) {
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
