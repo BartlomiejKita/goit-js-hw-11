@@ -19,7 +19,7 @@ function searchPics() {
       if (page < 1) {
         gallery.innerHTML = '';
       } else if (page > 1) {
-        if (leftHits < 0) {
+        if (leftHits < 20) {
           Notiflix.Notify.failure(
             `We're sorry, but you've reached the end of search results.`
           );
@@ -80,6 +80,7 @@ function renderPictures(data) {
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
+  
   let lightbox = new SimpleLightbox('.gallery a', {
     captionDelay: '250',
   });
