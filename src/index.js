@@ -9,8 +9,9 @@ const form = document.querySelector('#search-form');
 const input = document.querySelector('input');
 const gallery = document.querySelector('.gallery');
 
-let page = 0;
+let page;
 let leftHits;
+let scrollBefore = 0;
 
 function searchPics() {
   fetchPics(input.value, page)
@@ -24,6 +25,23 @@ function searchPics() {
 
 function renderPictures({ totalHits, hits }) {
   leftHits = totalHits - page * 40;
+
+  if (totalHits == 0) {
+    Notiflix.Notify.failure(
+      `Sorry, there are no images matching your search query. Please try again.`
+    );
+  }
+
+  if (page == 1 && totalHits > 0) {
+    Notiflix.Notify.success(`Found ${totalHits} images`);
+  }
+
+  if (!totalHits == 0 && leftHits < 0) {
+    Notiflix.Notify.failure(
+      `We're sorry, but you've reached the end of search results.`
+    );
+  }
+
   const markup = hits
     .map(
       ({
@@ -72,39 +90,30 @@ function renderPictures({ totalHits, hits }) {
       behavior: 'smooth',
     });
   }
-
-  if (totalHits == 0) {
-    Notiflix.Notify.failure(
-      `Sorry, there are no images matching your search query. Please try again.`
-    );
-  }
-
-  if (page == 1 && totalHits > 0) {
-    Notiflix.Notify.success(`Found ${totalHits} images`);
-  }
-
-  if (!totalHits == 0 && leftHits < 0) {
-    Notiflix.Notify.failure(
-      `We're sorry, but you've reached the end of search results.`
-    );
-  }
 }
 
 const search = e => {
   e.preventDefault();
   page = 1;
   gallery.innerHTML = '';
+  console.log(`start: ${page}`);
+
   searchPics();
 };
 
 form.addEventListener('submit', search);
 
 function loadMore() {
-  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  const scrolled = window.scrollY;
 
-  if (clientHeight + scrollTop >= scrollHeight - 1 && leftHits > 0) {
-    page += 1;
-    searchPics();
+  if (scrollBefore < scrolled) {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+    if (clientHeight + scrollTop >= scrollHeight - 1 && leftHits > 0) {
+      page += 1;
+      console.log(`loadmore: ${page}`);
+      searchPics();
+    }
   }
 }
 
