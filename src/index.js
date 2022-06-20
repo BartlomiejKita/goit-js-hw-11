@@ -97,7 +97,7 @@ const search = e => {
   searchPics();
 };
 
-form.addEventListener('click', search);
+form.addEventListener('submit', search);
 
 function loadMore() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
