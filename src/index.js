@@ -5,7 +5,7 @@ import './sass/index.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const btn = document.querySelector('button');
+const form = document.querySelector('#search-form');
 const input = document.querySelector('input');
 const gallery = document.querySelector('.gallery');
 
@@ -97,7 +97,7 @@ const search = e => {
   searchPics();
 };
 
-btn.addEventListener('click', search);
+form.addEventListener('click', search);
 
 function loadMore() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
