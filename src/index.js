@@ -23,28 +23,9 @@ function searchPics() {
     });
 }
 
-function renderPictures(data) {
-  totalHits = data.totalHits;
-
-  if (page <= 1 && totalHits == 0) {
-    Notiflix.Notify.failure(
-      `Sorry, there are no images matching your search query. Please try again.`
-    );
-  }
-
-  if (page == 1 && totalHits > 0) {
-    Notiflix.Notify.success(`Found ${data.totalHits} images`);
-  }
-  if (page > 2 && leftHits < 20) {
-    Notiflix.Notify.failure(
-      `We're sorry, but you've reached the end of search results.`
-    );
-  }
-
-  page += 1;
-  leftHits = totalHits + 20 - page * 40;
-
-  const markup = data.hits
+function renderPictures({ totalHits, hits }) {
+  leftHits = totalHits - page * 40;
+  const markup = hits
     .map(
       ({
         largeImageURL,
@@ -90,6 +71,21 @@ function renderPictures(data) {
       behavior: 'smooth',
     });
   }
+  if (totalHits == 0) {
+    Notiflix.Notify.failure(
+      `Sorry, there are no images matching your search query. Please try again.`
+    );
+  }
+
+  if (page == 1 && totalHits > 0) {
+    Notiflix.Notify.success(`Found ${totalHits} images`);
+  }
+  if (!totalHits == 0 && leftHits < 0) {
+    console.log(leftHits);
+    Notiflix.Notify.failure(
+      `We're sorry, but you've reached the end of search results.`
+    );
+  }
 }
 
 const search = e => {
@@ -104,9 +100,8 @@ btn.addEventListener('click', search);
 window.addEventListener('scroll', () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-  console.log({ scrollTop, scrollHeight, clientHeight });
-
-  if (clientHeight + scrollTop >= scrollHeight - 1) {
+  if (clientHeight + scrollTop >= scrollHeight - 1 && leftHits > 0) {
+    page += 1;
     searchPics();
   }
 });
