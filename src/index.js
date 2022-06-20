@@ -10,7 +10,6 @@ const input = document.querySelector('input');
 const gallery = document.querySelector('.gallery');
 
 let page = 0;
-let totalHits = 0;
 let leftHits;
 
 function searchPics() {
