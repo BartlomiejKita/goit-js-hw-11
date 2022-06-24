@@ -9,6 +9,7 @@ const form = document.querySelector('#search-form');
 const input = document.querySelector('input');
 const gallery = document.querySelector('.gallery');
 
+let lightbox;
 let page;
 let leftHits;
 let scrollBefore = 0;
@@ -76,9 +77,13 @@ function renderPictures({ totalHits, hits }) {
 
   gallery.insertAdjacentHTML('beforeend', markup);
 
-  let lightbox = new SimpleLightbox('.gallery a', {
+  if (typeof lightbox === 'object') {
+    lightbox.destroy();
+  }
+
+  lightbox = new SimpleLightbox('.gallery a', {
     captionDelay: '250',
-  }).refresh();
+  });
 
   if (page > 2) {
     const { height: cardHeight } = document
