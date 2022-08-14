@@ -1,5 +1,6 @@
-const axios = require('axios');
-import { fetchPics } from './fetchPics';
+'use strict';
+
+import fetchPics from './fetchPics';
 import Notiflix from 'notiflix';
 import './sass/index.css';
 import SimpleLightbox from 'simplelightbox';
